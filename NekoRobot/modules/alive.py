@@ -28,11 +28,12 @@ import datetime
 from datetime import datetime
 
 from pyrogram import __version__ as pyrover
-from telegram.ext import CommandHandler
 from telethon import Button
 from telethon import __version__ as tlhver
 
-from NekoRobot import BOT_NAME, BOT_USERNAME, NEKO_PTB, tbot
+from NekoRobot import BOT_NAME, BOT_USERNAME
+from NekoRobot import tbot as neko
+from NekoRobot.events import register
 
 edit_time = 5
 """ =======================Neko====================== """
@@ -65,7 +66,8 @@ async def _human_time_duration(seconds):
     return ", ".join(parts)
 
 
-async def alive(yes):
+@register(pattern=("/alive"))
+async def hmm(yes):
     await yes.get_chat()
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
@@ -83,30 +85,25 @@ async def alive(yes):
             Button.url("【► Support ◄】", f"https://t.me/{SUPPORT_CHAT}"),
         ]
     ]
-    on = await tbot.send_file(yes.chat_id, file=file2, caption=NekoX, buttons=BUTTON)
+    on = await neko.send_file(yes.chat_id, file=file2, caption=NekoX, buttons=BUTTON)
 
     await asyncio.sleep(edit_time)
-    ok = await tbot.edit_message(yes.chat_id, on, file=file3, buttons=BUTTON)
+    ok = await neko.edit_message(yes.chat_id, on, file=file3, buttons=BUTTON)
 
     await asyncio.sleep(edit_time)
-    ok2 = await tbot.edit_message(yes.chat_id, ok, file=file4, buttons=BUTTON)
+    ok2 = await neko.edit_message(yes.chat_id, ok, file=file4, buttons=BUTTON)
 
     await asyncio.sleep(edit_time)
-    ok3 = await tbot.edit_message(yes.chat_id, ok2, file=file1, buttons=BUTTON)
+    ok3 = await neko.edit_message(yes.chat_id, ok2, file=file1, buttons=BUTTON)
 
     await asyncio.sleep(edit_time)
-    ok4 = await tbot.edit_message(yes.chat_id, ok3, file=file2, buttons=BUTTON)
+    ok4 = await neko.edit_message(yes.chat_id, ok3, file=file2, buttons=BUTTON)
 
     await asyncio.sleep(edit_time)
-    ok5 = await tbot.edit_message(yes.chat_id, ok4, file=file1, buttons=BUTTON)
+    ok5 = await neko.edit_message(yes.chat_id, ok4, file=file1, buttons=BUTTON)
 
     await asyncio.sleep(edit_time)
-    ok6 = await tbot.edit_message(yes.chat_id, ok5, file=file3, buttons=BUTTON)
+    ok6 = await neko.edit_message(yes.chat_id, ok5, file=file3, buttons=BUTTON)
 
     await asyncio.sleep(edit_time)
-    ok7 = await tbot.edit_message(yes.chat_id, ok6, file=file4, buttons=BUTTON)
-
-
-ALIVE_HANDLER = CommandHandler("alive", alive, run_async=True)
-
-NEKO_PTB.add_handler(ALIVE_HANDLER)
+    ok7 = await neko.edit_message(yes.chat_id, ok6, file=file4, buttons=BUTTON)

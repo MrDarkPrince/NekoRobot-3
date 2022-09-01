@@ -40,7 +40,7 @@ from telethon.tl import *
 from telethon.tl import functions, types
 
 from NekoRobot import DRAGONS, NEKO_PTB
-from NekoRobot import telethn as bot
+from NekoRobot import tbot as bot
 from NekoRobot.modules.disable import DisableAbleCommandHandler
 from NekoRobot.modules.helper_funcs.alternate import send_message
 from NekoRobot.modules.helper_funcs.chat_status import (
@@ -738,7 +738,7 @@ def demote(update: Update, context: CallbackContext) -> str:
 def refresh_admin(update, _):
     try:
         ADMIN_CACHE.pop(update.effective_chat.id)
-    except KeyError:
+    except (KeyError, IndexError):
         pass
 
     update.effective_message.reply_text("Admins cache refreshed!")
@@ -1031,7 +1031,7 @@ def adminlist(update, context):
             if custom_title:
                 try:
                     custom_admin_list[custom_title].append(name)
-                except KeyError:
+                except (KeyError, IndexError):
                     custom_admin_list.update({custom_title: [name]})
             else:
                 normal_admin_list.append(name)

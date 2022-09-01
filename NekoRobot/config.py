@@ -84,7 +84,7 @@ import os
 
 
 def get_user_list(config, key):
-    with open("{}/KURUMIBOT/{}".format(os.getcwd(), config), "r") as json_file:
+    with open("{}/NekoRobot/{}".format(os.getcwd(), config), "r") as json_file:
         return json.load(json_file)[key]
 
 
@@ -96,7 +96,7 @@ class Config(object):
 
     API_ID = 1234567  # integer value, dont use ""
     API_HASH = "12345abcdefg23459"
-    TOKEN = ""  # This var used to be API_KEY but it is now TOKEN, adjust accordingly.
+    TOKEN = "5794945691:AAEkJf3WxkPEQp39dRXkkCedVfmtHJOiF3s"  # This var used to be API_KEY but it is now TOKEN, adjust accordingly.
     OWNER_ID = 1732814103  # If you dont know, run the bot and do /id in your private chat with it, also an integer
     OWNER_USERNAME = "DarlingPrince"
     SUPPORT_CHAT = "BlackLover_Support"  # Your own group for support, do not add the @

@@ -43,10 +43,9 @@ from time import time
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from telegram import ParseMode, Update
-from telegram.ext import CallbackContext
+from telegram.ext import CallbackContext, CommandHandler
 
-from NekoRobot import DEV_USERS, LOGGER
-from NekoRobot import pbot as pgram
+from NekoRobot import DEV_USERS, LOGGER, NEKO_PTB, pgram
 from NekoRobot.modules.helper_funcs.chat_status import dev_plus
 
 Neko_PYRO_Eval = filters.command(["eval", "e"])
@@ -228,3 +227,18 @@ async def executor(client, message):
 async def runtime_func_cq(_, cq):
     runtime = cq.data.split(None, 1)[1]
     await cq.answer(runtime, show_alert=True)
+
+
+@dev_plus
+async def clear(update: Update, context: CallbackContext) -> None:
+    bot = context.bot
+    log_input(update)
+    if update.message.chat_id in namespaces:
+        del namespaces[update.message.chat_id]
+    await send("Cleared locals.", bot, update)
+
+
+NEKO_PTB.add_handler(CommandHandler(("x", "ex", "exe", "py"), execute, run_async=True))
+NEKO_PTB.add_handler(CommandHandler("clearlocals", clear, run_async=True))
+
+__mod_name__ = "Eval Module"

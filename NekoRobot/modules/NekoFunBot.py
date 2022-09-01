@@ -103,7 +103,8 @@ def blush(update, context):
         r = requests.get(url)
         e = r.json()
         blushme = e["results"][0]["url"]
-        name1 = message.from_user.first_name
+        msg = update.effective_message
+        name1 = msg.from_user.first_name
         msg.reply_video(blushme, caption="*Oh {}~kun I Luv You*~".format(name1))
 
 
@@ -152,3 +153,4 @@ NEKO_PTB.add_handler(HUG_HANDLER)
 NEKO_PTB.add_handler(SLAP_HANDLER)
 NEKO_PTB.add_handler(CUTE_HANDLER)
 NEKO_PTB.add_handler(SLEEP_HANDLER)
+NEKO_PTB.add_handler(BLUSH_HANDLER)

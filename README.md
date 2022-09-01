@@ -1,9 +1,9 @@
-![Neko-X](https://telegra.ph/file/843497f356667a693c0f5.jpg)
+![Neko-X](https://telegra.ph/file/4bf4b16a4e561dac5ad62.jpg)
 
 # 𝐍𝐞𝐤𝐨 𝐑𝐨𝐛𝐨𝐭 [ BETA ]
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html) [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/Awesome-Prince/NekoRobot-3/?ref=repository-badge) [![Join Support!](https://img.shields.io/badge/Join%20Channel-!-red)](https://telegram.dog/BlackLover_Support) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-no-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://GitHub.com/Awesome-Prince/NekoRobot-3/graphs/contributors/)
 
-A modular telegram Python bot running on python3 with an sqlalchemy, Redis, mongodb database.
+A modular Python Bot For Telegram That Runs On Python3 And Connects To Sqlalchemy Database.
 
 ###  ╔═━「 Status 」
 
@@ -25,11 +25,6 @@ This repo was just reamped to suit an Anime-centric community. All original cred
 ### ╔═━「 Creator Info/Credits 」
 
 + [Lovely-Prince](https://github.com/Awesome-Prince) : OWNER | DEV
-+ [RajuKumar](https://github.com/Awesome-RJ) : DEV
-+ [STB](https://github.com/STBxD) : DEV
-+ [H0DAKA](https://github.com/H0daka) : DEV
-+ [AASF-CYBERKING](https://github.com/AASFCYBERKING) : NEKO FUN MODULE, LIVEGRAM MODULE
-+ [CTZFAMILY](https://github.com/CTZFAMILY) : FUN MODULE, SOME MODULES
 + [AkshayRajput](https://github.com/TheHamkerCat) : ARQ MODULES
 + [TheRealPhoenix](https://github.com/rsktg) : BASE
 + [DragSama](https://github.com/DragSama) : ANIME

@@ -37,6 +37,7 @@ import random
 import re
 import time
 import traceback
+from sys import argv
 from typing import Optional
 
 from pyrogram import idle
@@ -70,7 +71,7 @@ from NekoRobot import (
     TOKEN,
     WEBHOOK,
     StartTime,
-    pbot,
+    pgram,
     tbot,
     updater,
 )
@@ -111,14 +112,14 @@ HELP_MSG = "Click The Button Below To Get Help Menu In Your Dm."
 START_MSG = "I'm Awake Already!\n<b>Haven't Slept Since:</b> <code>{}</code>"
 
 PM_START_TEXT = """
-────「 [{}](https://telegra.ph/file/bdc771a084e2c806ec756.jpg) 」────
+────「 [{}](https://telegra.ph/file/4bf4b16a4e561dac5ad62.jpg) 」────
 *Hola! {},*
 *I am an Anime Themed Advance Group Management Bot With Lot Of Sexy Features.*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ❍ *Uptime:* `{}`
 ❍ `{}` *Users, Across* `{}` *Chats.*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
-➛ Try The Help Buttons Below To Know My Abilities ××
+➛ Try The Guidelines Button Below To Know My Abilities ××
 """
 
 buttons = [
@@ -129,10 +130,9 @@ buttons = [
         )
     ],
     [
-        InlineKeyboardButton(text="[► Help ◄]", callback_data="help_back"),
-        InlineKeyboardButton(text="❔ Chit Chat", url="https://telegram.dog/Besties_XD"),
+        InlineKeyboardButton(text="📓 Guidelines", callback_data="help_back"),
         InlineKeyboardButton(
-            text="[► Repo ◄]", url="https://github.com/Awesome-Prince/NekoRobot-3"
+            text="Source 🌐", url="https://github.com/Awesome-Prince/NekoRobot-3.git"
         ),
     ],
     [
@@ -140,10 +140,11 @@ buttons = [
             text="🚑 Support", url=f"https://telegram.dog/{SUPPORT_CHAT}"
         ),
         InlineKeyboardButton(
-            text="📢 Updates", url="https://telegram.dog/BlackLover_Support"
+            text="📢 Updates", url="https://telegram.dog/BlackLover_Updates"
         ),
     ],
 ]
+
 
 HELP_STRINGS = """
 *Main* commands available:
@@ -224,7 +225,7 @@ def send_help(context: CallbackContext, chat_id, text, keyboard=None):
         keyboard = InlineKeyboardMarkup(paginate_modules(0, HELPABLE, "help"))
     NEKO_PTB.bot.send_message(
         chat_id=chat_id,
-        text=text,
+        text=HELP_STRINGS,
         parse_mode=ParseMode.MARKDOWN,
         disable_web_page_preview=True,
         reply_markup=keyboard,
@@ -752,7 +753,7 @@ def main():
             allowed_updates=Update.ALL_TYPES,
         )
 
-    if len not in (1, 3, 4):
+    if len(argv) not in (1, 3, 4):
         tbot.disconnect()
     else:
         tbot.run_until_disconnected()
@@ -763,6 +764,6 @@ def main():
 if __name__ == "__main__":
     LOGGER.info("Successfully loaded modules: " + str(ALL_MODULES))
     tbot.start(bot_token=TOKEN)
-    pbot.start()
+    pgram.start()
     main()
     idle()
